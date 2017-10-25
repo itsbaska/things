@@ -1,0 +1,19 @@
+<section id="poems" class="content content-left">
+  <ul id="poem-list" class="poem-list">
+    <% @poems.each do |poem| %>
+        <%= erb :'poems/_poem', { layout: false, locals: { :poem => poem }} %>
+    <% end %>
+  </ul>
+</section>
+
+<section id="sidebar" class="sidebar">
+  <h1 class="sidebar-heading">
+    Share Your Poetry
+  </h1>
+  <p>
+    At Layperson Poetry all are welcome to share their works.  Simply submit
+    the form below.
+  </p>
+  <div class="form-error"></div>
+  <%= erb :'poems/_form', { layout: false, locals: { :poem => @poem }} %>
+</section>

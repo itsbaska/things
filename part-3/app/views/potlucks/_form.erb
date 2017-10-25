@@ -1,0 +1,9 @@
+<form method="POST" action="<%= potluck_form_action(@potluck) %>" class="login-register-form">
+  <% if @potluck.persisted? %>
+    <input type="hidden" name="_method" value="put" />
+  <% end %>
+  <input type="text" name="potluck[name]" value="<%= @potluck.name %>" placeholder="Name">
+  <input type="datetime-local" name="potluck[starts_at]" value="<%= potluck_date_input_format(@potluck.starts_at) %>" placeholder="Starts At">
+  <input type="text" name="potluck[location]" value="<%= @potluck.location %>" placeholder="Location">
+  <input type="submit" value="<%= submit_button_value(@potluck) %>">
+</form>

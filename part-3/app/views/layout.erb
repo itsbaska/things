@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!--
+    normalize.css removes cross-browser differences in defaults, e.g.,
+    differences in how form elements appear between Firefox and IE
+    See: http://necolas.github.com/normalize.css/
+  -->
+  <link rel="stylesheet" href="/css/normalize.css">
+  <!--
+    application.css is where you put your styles
+  -->
+  <link rel="stylesheet" href="/css/application.css">
+  <link href="https://fonts.googleapis.com/css?family=Bree+Serif|Lato" rel="stylesheet">
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/application.js"></script>
+
+  <title>Potluck Party</title>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <ul>
+        <% if logged_in? %>
+        <li><a href="/users/<%= current_user.id %>">Hello, <%= current_user.name %>!</a></li>
+        <li><a href="/potlucks/new">Host a Potluck</a></li>
+        <li><form method="POST" action="/sessions">
+              <input type="hidden" name="_method" value="DELETE" />
+              <input type="submit" class="button" value="Logout" />
+            </form>
+        </li>
+        <% else %>
+        <li><a href="/sessions/new">Login</a></li>
+        <li><a href="/users/new">Sign Up</a></li>
+        <% end %>
+      </ul>
+    </nav>
+    <h1><a href="/">Potluck Manager</a></h1>
+    <div class="main">
+    <%= yield %>
+    </div>
+  </div>
+</body>
+</html>

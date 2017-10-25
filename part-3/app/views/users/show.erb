@@ -1,0 +1,37 @@
+<h2><%= @user.name %>'s Potlucks</h2>
+
+<div class="bigger">
+<% if current_user.to_attend.any? %>
+  <h3>Potlucks you have signed up for:</h3>
+    <ul>
+      <% current_user.to_attend.each do |potluck| %>
+      <li><a href="/potlucks/<%= potluck.id %>"><%= potluck.name %></a></li>
+      <% end %>
+    </ul>
+<% end %>
+<% if current_user.previously_attended.any? %>
+  <h3>Potlucks you have attended:</h3>
+    <ul>
+      <% current_user.previously_attended.each do |potluck| %>
+      <li><a href="/potlucks/<%= potluck.id %>"><%= potluck.name %></a></li>
+    </ul>
+<% end %>
+<% end %>
+</div>
+<% if @user.potlucks.any? %>
+<hr>
+<h3>Upcoming</h3>
+  <ul>
+    <% @user.to_host.each do |potluck| %>
+    <li><a href="/potlucks/<%= potluck.id %>"><%= potluck.name %></a></li>
+    <% end %>
+  </ul>
+<h3>Previous</h3>
+  <ul>
+    <% @user.previously_hosted.each do |potluck| %>
+    <li><a href="/potlucks/<%= potluck.id %>"><%= potluck.name %></a></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>This user hasn't created any potlucks</p>
+<% end %>

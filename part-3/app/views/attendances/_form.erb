@@ -1,0 +1,7 @@
+<% if @errors %>
+<%= erb :"_errors", locals: {errors: @errors} %>
+<% end %>
+<form action="/potlucks/<%= @potluck.id %>/attendances" method="post" class="login-register-form">
+  <input type="text" name="dish" placeholder="What dish will you bring?">
+  <input type="submit" value="Sign up">
+</form>

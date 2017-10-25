@@ -1,0 +1,120 @@
+body {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 60%;
+  margin: 100px auto;
+  font-family: 'Lato', sans-serif;
+}
+
+.container {
+  width: 960px;
+  margin: 40px;
+}
+
+html {
+  background-image: url("../images/background.jpg");
+  background-repeat: repeat;
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav ul {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+h1 {
+  text-align: center;
+  background-color: #94BA8F;
+  width: 100%;
+  padding: 20px 0;
+}
+
+h1 a {
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 3px;
+  font-family: 'Bree Serif', serif;
+}
+
+nav li {
+  margin: 5px;
+  padding-right: 20px;
+}
+
+.bigger {
+  font-size: 1.1em;
+  text-align: center;
+}
+
+.button {
+  background:none!important;
+  border:0;
+  outline: 0;
+  padding:0!important;
+}
+
+.potluck-item {
+  margin-bottom: 40px;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.login-register-form input, .new-potluck-button {
+  display: block;
+  margin: 10px auto;
+  padding: 5px;
+  border-radius: 5px;
+  outline: 0;
+  border: solid 1px #EBDF43;
+  width: 250px;
+  box-sizing: border-box;
+}
+
+.login-register-form input[type=submit], .new-potluck-button {
+  background-color: #EBDF43;
+  width: 250px;
+  box-sizing: border-box;
+}
+
+.potluck-item a:link, h3, .new-potluck-button {
+  font-family: 'Bree Serif', serif;
+  color: #626664;
+  font-size: 1.2em;
+  letter-spacing: 1px;
+}
+
+.new-potluck-button {
+  text-align: center;
+}
+
+.potluck-details {
+  font-size: 0.8em;
+}
+
+.potluck-item a:visited {
+  color: #626664;
+}
+
+h2 {
+  font-family: 'Bree Serif', serif;
+  color: #626664;
+}
+

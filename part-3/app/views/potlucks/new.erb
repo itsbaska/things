@@ -1,0 +1,8 @@
+<h3>New Potluck</h3>
+
+<% if @errors %>
+<%= erb :"_errors", locals: {errors: @errors} %>
+<% end %>
+
+<%= erb :"/potlucks/_form" %>
+

@@ -1,0 +1,43 @@
+<section>
+  <h2><%= @potluck.name %></h2>
+  <div class="bigger">
+  <p>Location:</p>
+  <p><%= @potluck.location %></p>
+  <p>Date:</p>
+  <p><%= date_and_time(@potluck.starts_at) %></p>
+  <p>Host:</p>
+  <p><a href="/users/<%= @potluck.host.id %>"><%= @potluck.host.username %></a></p>
+  </div>
+
+  <% if authorized?(@potluck.host) %>
+  <a href="/potlucks/<%= @potluck.id %>/edit">Edit</a>
+
+  <form method="POST" action="/potlucks/<%= @potluck.id %>" >
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete" class="button">
+  </form>
+  <% end %>
+
+  <% if logged_in? %>
+  <h3>Attendees</h3>
+  <ul>
+  <% @attendances.each do |attendance| %>
+    <li><%= attendance.attendee.username %> will be bringing <%= attendance.dish %></li>
+  <% end %>
+  </ul>
+  <% end %>
+</section>
+
+
+<section id="sidebar">
+  <% if logged_in? && current_user.guest?(@potluck) %>
+  <h3>Attend the Potluck</h3>
+    <% if current_user.attending?(@potluck) %>
+      <p>You have signed up to bring <%= @dish %></p>
+    <% else %>
+      <%= erb :"/attendances/_form", locals: { potluck: @potluck } %>
+    <% end %>
+  <% end %>
+</section>
+
+

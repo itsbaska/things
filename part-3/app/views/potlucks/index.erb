@@ -1,0 +1,12 @@
+<ul>
+<% @upcoming_potlucks.each do |potluck| %>
+  <li class="potluck-item">
+    <p><a href="/potlucks/<%= potluck.id %>"><%= potluck.name %></a></p>
+    <p class="potluck-details"><%= date(potluck.starts_at) %> at <%= potluck.location %></p>
+  </li>
+<% end %>
+</ul>
+
+<% if logged_in? %>
+<a href="/potlucks/new" class="new-potluck-button">Host a Potluck</a>
+<% end %>

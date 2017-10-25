@@ -1,0 +1,12 @@
+<form id="new-poem-form" action="/poems" method="post" class="form">
+  <label for="poem[author]" class="label">Author:</label>
+  <input type="text" name="poem[author]" value="<%= poem.try(:author) %>" class="input input-round" placeholder="Anonymous">
+
+  <label for="poem[title]" class="label">Title:</label>
+  <input type="text" name="poem[title]" value="<%= poem.try(:title) %>" class="input input-round" placeholder="Untitled">
+
+  <label for="poem[body]" class="label">Poem:</label>
+  <textarea name="poem[body]" class="textarea input input-round"><%= poem.try(:body) %></textarea>
+
+  <input type="submit" name="submit" value="Publish" class="input button button-coral">
+</form>
